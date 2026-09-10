@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidGuestbook(data) {
+      return data.keys().hasAll(['nickname', 'message', 'sticker', 'likes', 'createdAt']) &&
+        (data.keys().size() == 5 || (data.keys().size() == 6 && 'personalityType' in data)) &&
+        data.nickname is string && data.nickname.size() > 0 && data.nickname.size() <= 30 &&
+        data.message is string && data.message.size() > 0 && data.message.size() <= 500 &&
+        data.sticker is string && data.sticker.size() > 0 && data.sticker.size() <= 20 &&
+        data.likes is number && data.likes >= 0 && data.likes <= 100000 &&
+        data.createdAt is string && data.createdAt.size() <= 50 &&
+        (!('personalityType' in data) || (data.personalityType is string && data.personalityType.size() <= 50));
+    }
+
+    function isValidRanking(data) {
+      return data.keys().hasAll(['nickname', 'timeSeconds', 'moves', 'createdAt']) &&
+        data.keys().size() == 4 &&
+        data.nickname is string && data.nickname.size() > 0 && data.nickname.size() <= 30 &&
+        data.timeSeconds is number && data.timeSeconds > 0 && data.timeSeconds <= 3600 &&
+        data.moves is number && data.moves > 0 && data.moves <= 500 &&
+        data.createdAt is string && data.createdAt.size() <= 50;
+    }
+
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email == 'miniu4620@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Connection testing doc
+    match /test/{docId} {
+      allow read: if true;
+    }
+
+    // Guestbook collection
+    match /guestbook/{entryId} {
+      allow read: if true;
+      allow create: if isValidId(entryId) && isValidGuestbook(request.resource.data);
+      allow update: if isValidId(entryId) &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes']) &&
+        request.resource.data.likes == resource.data.likes + 1;
+      allow delete: if isAdmin();
+    }
+
+    // Rankings collection
+    match /rankings/{rankingId} {
+      allow read: if true;
+      allow create: if isValidId(rankingId) && isValidRanking(request.resource.data);
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+  }
+}

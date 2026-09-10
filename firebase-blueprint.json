@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "GuestbookEntry": {
+      "title": "GuestbookEntry",
+      "description": "A guestbook visitor message from the Eunpyeong expo booth",
+      "type": "object",
+      "properties": {
+        "nickname": {
+          "type": "string",
+          "maxLength": 15
+        },
+        "personalityType": {
+          "type": "string",
+          "maxLength": 30
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "sticker": {
+          "type": "string",
+          "maxLength": 10
+        },
+        "likes": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "nickname",
+        "message",
+        "sticker",
+        "likes",
+        "createdAt"
+      ]
+    },
+    "RankingRecord": {
+      "title": "RankingRecord",
+      "description": "Card matching game score record",
+      "type": "object",
+      "properties": {
+        "nickname": {
+          "type": "string",
+          "maxLength": 15
+        },
+        "timeSeconds": {
+          "type": "number"
+        },
+        "moves": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "nickname",
+        "timeSeconds",
+        "moves",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/guestbook/{entryId}": {
+      "schema": "GuestbookEntry",
+      "description": "Collection of visitor guestbook messages"
+    },
+    "/rankings/{rankingId}": {
+      "schema": "RankingRecord",
+      "description": "Collection of card game ranking records"
+    }
+  }
+}

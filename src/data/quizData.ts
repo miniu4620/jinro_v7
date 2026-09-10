@@ -1,0 +1,600 @@
+import { PersonalityType, PersonalityTypeId, QuizQuestion, QuizChoice } from '../types';
+
+export const PERSONALITY_TYPES: Record<PersonalityTypeId, PersonalityType> = {
+  apple: {
+    id: 'apple',
+    name: 'Fresh Apple',
+    nameKo: '싱그러운 사과형',
+    emoji: '🍏',
+    flavor: '산뜻한 청사과 요거트 셔벗',
+    colorName: '애플민트 그린 & 라임',
+    bgGradient: 'from-emerald-500 via-teal-400 to-lime-300',
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+    cardBorder: 'border-emerald-400',
+    keywords: ['#창의적발상', '#아이디어뱅크', '#호기심대장', '#디자인감각'],
+    summary: '남들이 미처 보지 못한 새로운 시각과 독창적인 발상으로 세상을 감각적으로 디자인하는 크리에이터',
+    defaultDescription: '님은 반짝이는 영감과 감각적인 시선으로 일상을 특별하게 디자인하는 싱그러운 사과형!',
+    recommendedFields: ['시각 · 공간 디자인 계열', '소프트웨어 · 융합예술 계열', '건축 · 공간기획 계열'],
+    recommendedMajors: ['시각디자인학과', '산업디자인학과', '소프트웨어융합학과', '실내건축디자인학과', '디지털미디어학과'],
+    mentorQuotes: [
+      '남들과 다른 너의 독창적인 생각은 결코 엉뚱한 게 아니야. 세상을 더 새롭고 아름답게 바꿀 가장 눈부신 시작이야! 🍏✨',
+      '머릿속에 떠오른 작은 아이디어 하나가 언젠가 세상을 깜짝 놀라게 할 멋진 작품이 될 거야. 너의 특별한 감각을 믿어봐! 🎨',
+      '정해진 틀에 널 가두지 마. 네가 그리는 세상이 곧 새로운 길이 되고, 너의 상상력은 무한한 힘을 품고 있어! 🌿💫',
+      '주변 시선에 흔들리지 않고 너만의 시선으로 세상을 바라보는 너, 지금 이대로도 이미 충분히 빛나는 크리에이터야! 🌟',
+    ],
+    craftKit: {
+      title: '청사과 요거트 셔벗 미니어처 키트 🍏',
+      description: '상큼한 라임그린 컬러 클레이에 민트 잎 파츠와 미니어처 사과 슬라이스가 돋보이는 산뜻한 세트!',
+      clayColor: '#86efac',
+      toppings: ['미니 사과 토핑 슬라이스', '민트 허브 파츠', '반짝이 슈가 파우더'],
+      sauce: '상큼한 투명 청사과 젤 시럽',
+    },
+  },
+  dragonfruit: {
+    id: 'dragonfruit',
+    name: 'Vibrant Dragon Fruit',
+    nameKo: '화려한 용과형',
+    emoji: '🐉',
+    flavor: '이국적인 핑크 드래곤프루트 소르베',
+    colorName: '비비드 마젠타 핑크 & 네온 그린',
+    bgGradient: 'from-fuchsia-600 via-pink-500 to-rose-400',
+    badgeColor: 'bg-fuchsia-100 text-fuchsia-800 border-fuchsia-300',
+    cardBorder: 'border-fuchsia-400',
+    keywords: ['#독보적개성', '#트렌드세터', '#과감한도전', '#파격의혁신'],
+    summary: '남들의 기준에 얽매이지 않고 나만의 독보적인 색깔과 당당한 도전으로 세상을 놀라게 하는 혁신가',
+    defaultDescription: '님은 넘치는 개성과 거침없는 열정으로 무대를 장악하는 화려한 용과형!',
+    recommendedFields: ['패션 · 뷰티디자인 계열', '공연예술 · 실용음악 계열', '글로벌 엔터테인먼트 계열'],
+    recommendedMajors: ['패션디자인학과', '공연기획학과', '실용음악학과', '문화콘텐츠학과', '방송연예학과'],
+    mentorQuotes: [
+      '남들의 기준에 너를 맞추려 하지 마. 네 안에 깃든 그 독보적인 색깔 자체가 세상에 단 하나뿐인 가장 강력한 무기야! 🐉🔥',
+      '새로운 길을 먼저 개척하는 건 외로울 때도 있지만, 그 길의 맨 앞에서 세상을 리드할 주인공은 바로 너야! 💖',
+      '실패를 두려워하지 않는 너의 거침없는 용기는 이미 많은 친구들에게 영감을 주고 있어. 오늘도 너답게 당당하게 직진해봐! 🚀',
+      '세상은 평범함보다 너처럼 용기 있게 자신을 표현하는 사람을 기억해. 네 안의 뜨거운 열정을 믿고 멋지게 날아올라봐! ✨',
+    ],
+    craftKit: {
+      title: '마젠타 용과 스쿱 미니어처 키트 🐉',
+      description: '선명한 핫핑크 클레이에 까만 참깨 비즈와 이국적인 그린 뿔 파츠가 어우러진 유니크한 세트!',
+      clayColor: '#ec4899',
+      toppings: ['블랙 세서미 비즈', '네온 그린 드래곤 칩', '골드 스타 파우더'],
+      sauce: '글로시 비비드 핑크 레진',
+    },
+  },
+  blueberry: {
+    id: 'blueberry',
+    name: 'Smart Blueberry',
+    nameKo: '명석한 블루베리형',
+    emoji: '🫐',
+    flavor: '깊고 진한 와일드 블루베리 젤라또',
+    colorName: '딥 인디고 블루 & 바이올렛',
+    bgGradient: 'from-indigo-600 via-purple-500 to-sky-400',
+    badgeColor: 'bg-indigo-100 text-indigo-800 border-indigo-300',
+    cardBorder: 'border-indigo-400',
+    keywords: ['#지적탐구', '#논리분석', '#데이터장인', '#완벽주의'],
+    summary: '차분하고 예리한 통찰력으로 복잡한 정보 속에서 핵심을 짚어내고 최고의 해법을 도출하는 지적 전략가',
+    defaultDescription: '님은 깊이 있는 탐구력과 명쾌한 논리로 문제를 해결하는 명석한 블루베리형!',
+    recommendedFields: ['컴퓨터 · 인공지능 공학 계열', '자연과학 · 빅데이터 분석 계열', '의생명과학 계열'],
+    recommendedMajors: ['컴퓨터공학과', '데이터사이언스학과', '인공지능학과', '통계학과', '소프트웨어학과'],
+    mentorQuotes: [
+      '지금 너의 깊은 고민과 배움의 시간들은 결코 헛되지 않아. 차곡차곡 쌓인 지식과 통찰이 미래의 가장 단단한 날개가 되어줄 거야! 🫐💡',
+      '묵묵히 원리를 파고들고 스스로 답을 찾아가는 너의 끈기는 어떤 어려운 벽도 지혜롭게 허물어낼 최고의 힘이야! 📚✨',
+      '조급해하지 않아도 돼. 너만의 속도로 차분하게 다져온 생각의 깊이가 머지않아 큰 혁신과 변화를 만들어낼 테니까! 🔍💎',
+      '세상의 복잡한 소음 속에서도 본질을 꿰뚫어 보는 네 명석한 눈동자가 정말 멋져. 너의 지적인 호기심을 마음껏 펼쳐봐! 🔭',
+    ],
+    craftKit: {
+      title: '딥 블루베리 파르페 미니어처 키트 🫐',
+      description: '진한 바이올렛 블루 클레이에 앙증맞은 통 블루베리 파츠와 블루 글레이즈가 담긴 세련된 세트!',
+      clayColor: '#6366f1',
+      toppings: ['미니 생블루베리 구슬', '실버 스타 더스트', '스노우 파우더'],
+      sauce: '투명 블루베리 젤리 레진',
+    },
+  },
+  grapefruit: {
+    id: 'grapefruit',
+    name: 'Tangy Grapefruit',
+    nameKo: '당찬 자몽형',
+    emoji: '🍊',
+    flavor: '달콤 쌉싸름한 루비 레드 자몽 셔벗',
+    colorName: '코랄 핑크 & 루비 자몽 오렌지',
+    bgGradient: 'from-rose-500 via-orange-400 to-amber-300',
+    badgeColor: 'bg-orange-100 text-orange-800 border-orange-300',
+    cardBorder: 'border-orange-400',
+    keywords: ['#당당한매력', '#솔직담백', '#트렌드감각', '#빛나는순발력'],
+    summary: '호불호가 확실하고 감각적인 센스가 뛰어나며, 솔직하고 당당한 에너지로 유행을 선도하는 트렌드 메이커',
+    defaultDescription: '님은 톡 쏘는 솔직함과 뛰어난 센스로 모두의 시선을 사로잡는 매력적인 자몽형!',
+    recommendedFields: ['마케팅 · 광고홍보 계열', '미디어 · 저널리즘 계열', '브랜드 기획 · 큐레이션 계열'],
+    recommendedMajors: ['광고홍보학과', '미디어커뮤니케이션학과', '경영학과(마케팅)', '소비자학과', '신문방송학과'],
+    mentorQuotes: [
+      '너의 솔직하고 당당한 매력은 사람들의 마음을 단숨에 사로잡는 마법이야. 네가 가진 개성 있는 목소리와 센스를 절대 숨기지 마! 🍊✨',
+      '때로는 톡 쏘는 당당함이, 때로는 거침없는 행동력이 막힌 상황을 시원하게 뚫어내는 열쇠가 돼. 멋지게 네 무대를 만들어가! 💫',
+      '누군가의 눈치를 보기보다 너 자신을 아끼고 솔직하게 표현할 줄 아는 너, 어디에서나 빛나는 별처럼 반짝일 준비가 되어 있어! 🌟',
+      '너의 번뜩이는 감각과 트렌디한 안목은 정말 특별해. 너의 직관을 믿고 가슴 뛰는 꿈을 향해 과감하게 발걸음을 옮겨봐! 💖',
+    ],
+    craftKit: {
+      title: '루비 자몽 에이드 스쿱 미니어처 키트 🍊',
+      description: '영롱한 코랄 오렌지 클레이와 반투명 자몽 슬라이스, 반짝이는 탄산 펄이 돋보이는 상큼한 세트!',
+      clayColor: '#fb923c',
+      toppings: ['루비 자몽 슬라이스 칩', '투명 탄산 비즈', '코랄 하트 스프링클'],
+      sauce: '생생한 자몽 글레이즈 레진',
+    },
+  },
+  banana: {
+    id: 'banana',
+    name: 'Energetic Banana',
+    nameKo: '유쾌발랄 바나나형',
+    emoji: '🍌',
+    flavor: '달콤향긋 커스터드 바나나 스쿱',
+    colorName: '스위트 바나나 옐로우 & 캐러멜',
+    bgGradient: 'from-amber-400 via-yellow-300 to-orange-300',
+    badgeColor: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+    cardBorder: 'border-yellow-400',
+    keywords: ['#초긍정에너지', '#유쾌한센스', '#친화력만렙', '#현장행동파'],
+    summary: '어디서나 주위를 환하게 밝히는 유쾌한 비타민 에너지와 친화력으로 사람들을 하나로 모으는 분위기 메이커',
+    defaultDescription: '님은 보는 사람까지 기분 좋아지게 만드는 활기찬 에너자이저 바나나형!',
+    recommendedFields: ['글로벌 비즈니스 · 관광 계열', '이벤트 · 공연기획 · 레저 계열', '스포츠마케팅 계열'],
+    recommendedMajors: ['호텔관광경영학과', '글로벌비즈니스학과', '스포츠마케팅학과', '연극영화학과', '항공서비스학과'],
+    mentorQuotes: [
+      '너의 환한 미소와 긍정적인 에너지는 주변 사람들에게 가장 따뜻한 비타민이야. 널 만난 사람들은 정말 큰 행운아야! 🍌💛',
+      '고민만 하기보다 "일단 부딪혀보자!"며 뛰어드는 너의 씩씩한 추진력, 그 밝은 용기가 너를 상상 이상의 멋진 미래로 이끌어줄 거야! 🚀',
+      '지치고 힘든 날에도 금세 툭툭 털고 일어나는 너의 회복탄력성은 엄청난 재능이야. 언제나 널 응원하는 친구들이 곁에 있다는 걸 잊지 마! ☀️',
+      '어떤 먹구름도 네가 가진 밝은 햇살 같은 온기를 가릴 수 없어. 오늘도 너만의 유쾌한 에너지로 세상을 환하게 밝혀줘! ✨',
+    ],
+    craftKit: {
+      title: '스위트 바나나 캐러멜 미니어처 키트 🍌',
+      description: '부드러운 노란색 클레이와 바나나 칩 토핑, 황금빛 캐러멜 시럽이 완벽 조화된 활기찬 세트!',
+      clayColor: '#fde047',
+      toppings: ['바나나 슬라이스 데코', '캐러멜 크런치 큐브', '레인보우 믹스 스프링클'],
+      sauce: '황금빛 골든 캐러멜 레진 시럽',
+    },
+  },
+  strawberry: {
+    id: 'strawberry',
+    name: 'Lovely Strawberry',
+    nameKo: '달콤톡톡 딸기형',
+    emoji: '🍓',
+    flavor: '달콤한 생딸기 바닐라 스쿱',
+    colorName: '스트로베리 핑크 & 밀크화이트',
+    bgGradient: 'from-pink-500 via-rose-400 to-amber-200',
+    badgeColor: 'bg-rose-100 text-rose-700 border-rose-200',
+    cardBorder: 'border-pink-300',
+    keywords: ['#공감요정', '#따뜻한소통', '#섬세한배려', '#다정한힐러'],
+    summary: '사람들의 마음을 섬세하게 살피고 따뜻한 온기로 팀을 화목하게 만드는 다정한 힐러',
+    defaultDescription: '님은 사람들의 마음에 달콤한 미소를 피워내는 사랑스러운 딸기형!',
+    recommendedFields: ['교육 · 상담 · 복지 계열', '아동 · 청소년 지원 계열', '심리상담 · 헬스케어 계열'],
+    recommendedMajors: ['심리학과', '유아교육과', '사회복지학과', '상담심리학과', '특수교육과'],
+    mentorQuotes: [
+      '다른 사람의 마음에 깊이 귀 기울이고 공감해주는 너의 다정함은, 이 세상에 가장 필요하고 소중한 치유의 빛이야! 🍓💖',
+      '작은 친절 하나로도 누군가의 하루를 구원할 수 있는 사람, 그게 바로 너야. 너의 따뜻한 온기가 결국 더 큰 행복으로 돌아올 거야! 🌸',
+      '타인을 배려하느라 너 자신의 마음을 다치게 두지 마. 넌 남을 보살피는 만큼 너 스스로에게도 가장 큰 사랑을 받을 자격이 있어! 🌷',
+      '세상을 아름답게 바꾸는 힘은 거대한 구호보다 너처럼 사람을 아끼고 품어주는 따뜻한 마음에서 시작돼. 너의 선한 힘을 믿어! ☀️',
+    ],
+    craftKit: {
+      title: '달콤 딸기선데 미니어처 키트 🍓',
+      description: '부드러운 베이비핑크 클레이와 딸기알갱이 토핑, 투명 딸기시럽 레진이 포함된 사랑스러운 세트!',
+      clayColor: '#fda4af',
+      toppings: ['딸기 슬라이스 칩', '화이트 하트 스프링클', '초코 크런치 파우더'],
+      sauce: '반짝이는 딸기 글레이즈 레진',
+    },
+  },
+  watermelon: {
+    id: 'watermelon',
+    name: 'Generous Watermelon',
+    nameKo: '시원통쾌 수박형',
+    emoji: '🍉',
+    flavor: '가슴속까지 뻥 뚫리는 시원한 수박 슬러시',
+    colorName: '크림슨 레드 & 에메랄드 그린',
+    bgGradient: 'from-red-500 via-rose-400 to-emerald-400',
+    badgeColor: 'bg-red-100 text-red-800 border-red-300',
+    cardBorder: 'border-red-400',
+    keywords: ['#넓은포용력', '#듬직한리더', '#시원시원결단', '#의리파대장'],
+    summary: '시원시원한 결단력과 바다처럼 넓은 포용력으로 구성원들을 든든하게 받쳐주고 앞장서 이끄는 대장부 리더',
+    defaultDescription: '님은 듬직한 품성과 시원한 결단력으로 모두를 이끄는 믿음직한 수박형!',
+    recommendedFields: ['경영조직 · 리더십 계열', '행정 · 정책 · 법률 계열', '조직관리 · 프로젝트 총괄 계열'],
+    recommendedMajors: ['경영학과', '행정학과', '법학과', '정치외교학과', '공공관리학과'],
+    mentorQuotes: [
+      '모두가 망설일 때 앞장서서 방향을 잡아주는 너의 듬직한 어깨와 시원한 결단력, 팀의 든든한 기둥이자 나침반이야! 🍉👑',
+      '주변을 넓게 품어주는 너의 큰 배포는 많은 사람들에게 믿음직한 안식처가 되어줘. 큰 꿈을 향해 거침없이 나아가는 널 온 마음으로 응원해! 🌊',
+      '때로는 리더라는 무게감이 무거울 수 있지만, 너의 책임감과 진심은 이미 모두에게 깊은 신뢰를 주고 있어. 자신감을 가져! 🛡️',
+      '시원시원하게 상황을 돌파해나가는 너의 결단력이라면, 앞으로 마주할 어떤 도전도 통쾌하고 멋지게 이겨낼 수 있어! 🚀',
+    ],
+    craftKit: {
+      title: '시원 수박 슬러시 미니어처 키트 🍉',
+      description: '선명한 수박 레드 클레이에 그린 껍질 몰드와 앙증맞은 수박씨 토핑이 담긴 듬직한 세트!',
+      clayColor: '#f87171',
+      toppings: ['미니 수박씨 비즈', '초록 껍질 몰드 파츠', '슈가 크리스털 글리터'],
+      sauce: '맑고 투명한 워터멜론 시럽',
+    },
+  },
+  lime: {
+    id: 'lime',
+    name: 'Zesty Lime',
+    nameKo: '번뜩이는 라임형',
+    emoji: '🍋',
+    flavor: '톡 쏘는 상쾌함, 라임 모히또 셔벗',
+    colorName: '비비드 네온 라임 & 옐로그린',
+    bgGradient: 'from-lime-400 via-emerald-400 to-cyan-400',
+    badgeColor: 'bg-lime-100 text-lime-900 border-lime-300',
+    cardBorder: 'border-lime-400',
+    keywords: ['#번뜩이는재치', '#순발력최강', '#위기해결사', '#유연한센스'],
+    summary: '돌발 상황에서도 당황하지 않고 재치 있는 기지와 빠른 순발력으로 스마트하게 돌파구를 찾아내는 문제 해결사',
+    defaultDescription: '님은 톡 쏘는 재치와 기민한 순발력으로 위기를 기회로 바꾸는 번뜩이는 라임형!',
+    recommendedFields: ['소프트웨어 엔지니어링 계열', '사이버보안 · 시스템 대응 계열', '산업시스템공학 계열'],
+    recommendedMajors: ['소프트웨어공학과', '정보보안학과', '산업공학과', '로봇시스템공학과', '스마트융합학과'],
+    mentorQuotes: [
+      '예상치 못한 위기 앞에서도 번뜩이는 재치와 센스로 유쾌하게 넘기는 너의 순발력은 그 누구도 흉내 낼 수 없어! 🍋⚡',
+      '벽에 부딪히더라도 "오히려 좋아!"라며 새로운 길을 찾아내는 너의 유연함, 넌 어떤 환경에서도 찬란하게 꽃을 피울 사람이야! 🎯',
+      '상황을 무겁게 만들기보다 유쾌한 유머와 지혜로 전환하는 너의 능력은 모두를 웃게 만드는 가장 상큼한 마법이야! 💡',
+      '정답이 하나뿐인 시험지 너머에는 수천 가지의 새로운 해답이 있어. 네 기발한 센스로 너만의 신선한 세상을 마음껏 열어가봐! 🌿',
+    ],
+    craftKit: {
+      title: '톡톡 라임 샤베트 미니어처 키트 🍋',
+      description: '눈부신 네온 라임 클레이와 앙증맞은 라임 조각 파츠, 시트러스 슈가 토핑이 어우러진 톡 쏘는 세트!',
+      clayColor: '#bef264',
+      toppings: ['미니어처 라임 웨지', '민트 리프 파츠', '반짝이 레몬 슈가'],
+      sauce: '상쾌한 클리어 라임 레진 시럽',
+    },
+  },
+  carrot: {
+    id: 'carrot',
+    name: 'Solid Carrot',
+    nameKo: '성실단단 당근형',
+    emoji: '🥕',
+    flavor: '고소하고 든든한 시나몬 당근 케이크 스쿱',
+    colorName: '딥 캐럿 오렌지 & 테라코타',
+    bgGradient: 'from-amber-600 via-orange-500 to-yellow-500',
+    badgeColor: 'bg-amber-100 text-amber-900 border-amber-300',
+    cardBorder: 'border-amber-500',
+    keywords: ['#성실끝판왕', '#장인정신', '#철저한계획', '#신뢰와책임'],
+    summary: '묵묵하고 단단하게 뿌리를 내리듯, 성실한 노력과 높은 책임감으로 마침내 정상에 오르는 독보적 실력파 장인',
+    defaultDescription: '님은 흔들리지 않는 끈기와 깊은 성실함으로 신뢰를 쌓아가는 단단한 당근형!',
+    recommendedFields: ['기계 · 로봇 · 정밀공학 계열', '약학 · 바이오화학 계열', '금융회계 · 세무 계열'],
+    recommendedMajors: ['기계공학과', '화학공학과', '약학과', '회계세무학과', '신소재공학과'],
+    mentorQuotes: [
+      '오늘 하루 묵묵히 흘린 너의 땀방울과 노력은 절대 배신하지 않아. 보이지 않는 땅속에서 단단하게 자란 뿌리가 가장 깊고 큰 숲을 만들어! 🥕💎',
+      '흔들리지 않고 자신의 자리를 지켜내는 너의 성실함이야말로 세상에서 가장 위대하고 값진 최고의 재능이야! 🛡️',
+      '남들과의 속도 비교에 불안해하지 마. 하루하루 다져진 너의 깊은 내공은 그 어떤 화려함보다 오래가고 강력한 실력이 될 거야! 🏆',
+      '정직하게 최선을 다하는 너의 진심은 언제나 감동을 줘. 네가 묵묵히 쌓아 올린 시간들은 반드시 눈부신 결실로 보답받을 거야! 🌱✨',
+    ],
+    craftKit: {
+      title: '스위트 캐럿 케이크 미니어처 키트 🥕',
+      description: '따뜻한 오렌지 브라운 클레이에 미니 당근 잎 토핑과 시나몬 쿠키 크런치가 담긴 믿음직한 세트!',
+      clayColor: '#ea580c',
+      toppings: ['미니 당근 파츠', '피칸 쿠키 크런치', '화이트 크림치즈 드리즐'],
+      sauce: '진한 메이플 카라멜 레진',
+    },
+  },
+  avocado: {
+    id: 'avocado',
+    name: 'Calm Avocado',
+    nameKo: '부드러운 아보카도형',
+    emoji: '🥑',
+    flavor: '부드럽고 풍부한 크리미 아보카도 바닐라',
+    colorName: '소프트 올리브 그린 & 웜 베이지',
+    bgGradient: 'from-emerald-600 via-green-400 to-lime-200',
+    badgeColor: 'bg-green-100 text-green-900 border-green-300',
+    cardBorder: 'border-green-400',
+    keywords: ['#안정감원탑', '#평화주의자', '#마인드컨트롤', '#포근한중재자'],
+    summary: '어떤 소용돌이 속에서도 흔들리지 않는 부드러움과 평정심으로 사람들의 마음을 편안하게 이어주는 평화주의자',
+    defaultDescription: '님은 숲처럼 깊고 온화한 포용력으로 주변의 평화를 지키는 부드러운 아보카도형!',
+    recommendedFields: ['환경생태 · 자원공학 계열', '식품영양 · 바이오헬스 계열', '인문철학 · 조경디자인 계열'],
+    recommendedMajors: ['환경공학과', '식품영양학과', '조경학과', '바이오자원환경학과', '철학과'],
+    mentorQuotes: [
+      '주변이 아무리 소란스러워도 흔들리지 않는 너의 차분한 평정심과 온화한 중재력은 친구들에게 가장 큰 안식처가 되어줘! 🥑🌿',
+      '부드러움 속에 숨겨진 단단한 씨앗처럼, 너의 내면에는 그 누구보다 깊고 단단한 회복의 힘이 자리 잡고 있어! 🪴',
+      '갈등 속에서도 화합을 이끌어내고 사람들을 편안하게 해주는 너의 배려는 세상을 따뜻하게 치유하는 귀한 선물이야! 🕊️',
+      '서두르지 않고 온전히 나답게 피어나는 너의 평온한 숲속에서, 앞으로 더 많은 행복과 멋진 꿈들이 무럭무럭 자라날 거야! 💚',
+    ],
+    craftKit: {
+      title: '크리미 아보카도 보울 미니어처 키트 🥑',
+      description: '은은한 아보카도 그린 클레이와 동글동글 브라운 씨앗 파츠, 부드러운 올리브 글레이즈가 담긴 세트!',
+      clayColor: '#a7f3d0',
+      toppings: ['아보카도 씨앗 우드 비즈', '골드 피스타치오 가루', '화이트 코코넛 파우더'],
+      sauce: '차분한 올리브 오일 광택 레진',
+    },
+  },
+};
+
+export const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: 1,
+    badge: '상황 1 · 관심사 탐색',
+    scenario: '자유 시간에 인터넷이나 SNS를 둘러볼 때, 나도 모르게 가장 오래 보게 되는 콘텐츠는?',
+    title: '나의 호기심을 가장 자극하는 분야는?',
+    choices: [
+      {
+        text: '반짝이는 아이디어, 감각적인 디자인, 숏폼 창작 영상이나 트렌디한 문화 콘텐츠!',
+        subtext: '신선한 영감과 개성이 넘치는 크리에이티브한 세계에 끌려요.',
+        extraversion: 1,
+        feeling: 1,
+        reaction: '트렌디한 감각과 영감! 🎨',
+        types: ['apple', 'dragonfruit', 'grapefruit', 'banana', 'lime'],
+      },
+      {
+        text: '궁금한 원리를 파헤치는 과학·IT 신기술 리뷰, 꿀팁 정보 분석, 심도 있는 지식 탐구!',
+        subtext: '논리적이고 체계적인 정보와 세상을 움직이는 기술적 원리에 끌려요.',
+        extraversion: -1,
+        feeling: -1,
+        reaction: '스마트한 지적 호기심! 💡',
+        types: ['blueberry', 'carrot', 'avocado', 'watermelon', 'strawberry'],
+      },
+    ],
+  },
+  {
+    id: 2,
+    badge: '상황 2 · 직업 가치관',
+    scenario: '훗날 내가 일하게 될 미래 직업을 고를 때, 가장 포기할 수 없는 나만의 기준은?',
+    title: '내가 일에서 가장 원하는 가치는?',
+    choices: [
+      {
+        text: '내 개성과 끼를 마음껏 발휘하며, 많은 사람들에게 즐거움과 감동을 전하는 일!',
+        subtext: '자유로운 분위기 속에서 사람들과 소통하며 밝은 에너지를 나누고 싶어요.',
+        extraversion: 1,
+        feeling: 1,
+        reaction: '사람과 세상을 잇는 에너지! ✨',
+        types: ['strawberry', 'banana', 'dragonfruit', 'grapefruit', 'watermelon'],
+      },
+      {
+        text: '나만의 독보적인 전문 지식과 기술을 갈고닦아, 어떤 상황에서도 인정받는 실력자가 되는 일!',
+        subtext: '탄탄한 실력과 끈기로 한 분야의 최고 전문가로 우뚝 서고 싶어요.',
+        extraversion: -1,
+        feeling: -1,
+        reaction: '장인 정신과 확실한 전문성! 💎',
+        types: ['carrot', 'blueberry', 'lime', 'apple', 'avocado'],
+      },
+    ],
+  },
+  {
+    id: 3,
+    badge: '상황 3 · 동아리 프로젝트',
+    scenario: '학교나 동아리에서 친구들과 새로운 프로젝트를 시작할 때, 내가 먼저 하는 행동은?',
+    title: '새로운 일을 시작할 때 나의 방식은?',
+    choices: [
+      {
+        text: '"이거 재미있겠다!" 기발한 아이디어를 신나게 던지며 분위기를 띄우고 바로 시작하자고 한다!',
+        subtext: '주저하기보다는 빠른 실행력과 활기찬 추진력으로 팀에 활력을 불어넣어요.',
+        extraversion: 1,
+        feeling: 0,
+        reaction: '거침없는 파워 추진력! 🚀',
+        types: ['banana', 'dragonfruit', 'grapefruit', 'lime', 'watermelon'],
+      },
+      {
+        text: '목표와 일정, 필요한 역할과 준비물을 꼼꼼히 정리하며 차근차근 계획부터 세운다.',
+        subtext: '체계적인 계획과 명확한 역할 분담이 있어야 실패 없이 완성도를 높일 수 있어요.',
+        extraversion: -1,
+        feeling: 0,
+        reaction: '믿음직한 체계와 계획성! 📋',
+        types: ['blueberry', 'carrot', 'avocado', 'apple', 'strawberry'],
+      },
+    ],
+  },
+  {
+    id: 4,
+    badge: '상황 4 · 친구의 진로 고민',
+    scenario: '"아직 내가 뭘 잘하는지 꿈을 못 찾겠어..."라며 친구가 진지하게 고민을 털어놓는다면?',
+    title: '친구의 진로 고민을 들었을 때 나의 반응은?',
+    choices: [
+      {
+        text: '"조급해하지 마, 넌 장점이 정말 많은 친구야!" 따뜻하게 공감하며 친구의 자존감을 북돋아준다.',
+        subtext: '진심 어린 응원과 따뜻한 위로가 친구에게 다시 시작할 힘을 준다고 믿어요.',
+        extraversion: 0,
+        feeling: 1,
+        reaction: '마음을 보듬는 다정한 공감! 💖',
+        types: ['strawberry', 'avocado', 'watermelon', 'banana', 'apple'],
+      },
+      {
+        text: '"네가 평소 좋아하는 과목이나 취미부터 하나씩 적어볼까?" 구체적인 탐색 방법을 제안한다.',
+        subtext: '실질적인 해결책과 체계적인 조언을 함께 찾는 것이 현실적인 도움이라 생각해요.',
+        extraversion: 0,
+        feeling: -1,
+        reaction: '명쾌하고 현실적인 솔루션! 🔍',
+        types: ['lime', 'blueberry', 'carrot', 'grapefruit', 'dragonfruit'],
+      },
+    ],
+  },
+  {
+    id: 5,
+    badge: '상황 5 · AI와 새로운 기술',
+    scenario: '요즘 화제인 새로운 인공지능(AI) 도구나 창작 프로그램을 처음 마주했을 때 나는?',
+    title: '새로운 기술을 탐구할 때 나의 모습은?',
+    choices: [
+      {
+        text: '설명서 없이도 이것저것 직접 클릭해보고 프롬프트를 넣어보며 재미있게 바로 써본다!',
+        subtext: '직접 부딪혀보고 다양한 시도를 해보면서 가장 빠르고 감각적으로 체득해요.',
+        extraversion: 1,
+        feeling: 0,
+        reaction: '두려움 없는 탐험과 호기심! ⚡',
+        types: ['banana', 'lime', 'dragonfruit', 'grapefruit', 'watermelon'],
+      },
+      {
+        text: '어떤 기능과 알고리즘이 있는지 활용 팁과 가이드를 먼저 꼼꼼히 살펴본 뒤 단계적으로 쓴다.',
+        subtext: '도구의 원리와 안전한 사용법을 정확히 이해해야 제대로 100% 활용할 수 있어요.',
+        extraversion: -1,
+        feeling: 0,
+        reaction: '치밀하고 깊이 있는 학습력! 📖',
+        types: ['blueberry', 'apple', 'carrot', 'avocado', 'strawberry'],
+      },
+    ],
+  },
+  {
+    id: 6,
+    badge: '상황 6 · 위기 속 문제 해결',
+    scenario: '중요한 발표나 활동 중 예상치 못한 돌발 상황이나 실수가 발생했을 때 나의 대처법은?',
+    title: '위기 순간에 빛나는 나의 해결 스타일은?',
+    choices: [
+      {
+        text: '"오히려 좋아! 즉흥적으로 위기를 반전시켜보자!" 번뜩이는 순발력과 센스로 유연하게 대처한다.',
+        subtext: '상황에 맞춰 즉각적인 대안을 내고 유쾌하게 넘기는 위기 대처 능력이 뛰어나요.',
+        extraversion: 1,
+        feeling: 1,
+        reaction: '탁월한 순발력과 위기 극복! 🎯',
+        types: ['lime', 'dragonfruit', 'apple', 'banana', 'grapefruit'],
+      },
+      {
+        text: '심호흡을 하고 침착하게 원인을 분석한 뒤, 차근차근 문제를 수습하여 원래 계획을 지켜낸다.',
+        subtext: '당황하지 않는 침착함과 책임감으로 흔들리지 않고 중심을 잡아요.',
+        extraversion: -1,
+        feeling: -1,
+        reaction: '흔들림 없는 침착한 평정심! 🛡️',
+        types: ['carrot', 'avocado', 'blueberry', 'watermelon', 'strawberry'],
+      },
+    ],
+  },
+  {
+    id: 7,
+    badge: '상황 7 · 모둠 활동과 협업',
+    scenario: '조별 과제나 모둠 활동을 할 때, 내가 맡았을 때 가장 뿌듯하고 자신 있는 역할은?',
+    title: '팀 안에서 내가 가장 빛나는 자리는?',
+    choices: [
+      {
+        text: '조원들의 의견을 하나로 모으고, 최종 발표를 맡아 앞에 나서서 우리 팀을 빛내는 역할!',
+        subtext: '남다른 표현력과 리더십으로 팀의 결과물을 대중에게 멋지게 전달해요.',
+        extraversion: 1,
+        feeling: 1,
+        reaction: '무대를 사로잡는 당당한 발표자! 🎤',
+        types: ['watermelon', 'banana', 'dragonfruit', 'grapefruit', 'strawberry'],
+      },
+      {
+        text: '핵심 자료 조사, 아이디어 콘셉트 기획, 세련된 시각 자료 디자인을 책임지는 든든한 역할!',
+        subtext: '깊이 있는 분석과 디테일한 작업으로 팀 프로젝트의 실질적인 퀄리티를 완성해요.',
+        extraversion: -1,
+        feeling: -1,
+        reaction: '완성도를 높이는 든든한 핵심 멤버! 📐',
+        types: ['apple', 'blueberry', 'carrot', 'lime', 'avocado'],
+      },
+    ],
+  },
+  {
+    id: 8,
+    badge: '상황 8 · 나를 채우는 성취감',
+    scenario: '하루 일과를 마치고 잠자리에 들 때, 가장 뿌듯하고 보람차게 느껴지는 순간은?',
+    title: '나에게 가장 큰 성취감을 주는 순간은?',
+    choices: [
+      {
+        text: '친구들과 웃고 떠들며 협동하고, 내 작은 도움으로 누군가가 환하게 웃었을 때!',
+        subtext: '사람들과 따뜻한 유대감을 느끼고 서로에게 긍정적인 힘이 되었을 때 가장 행복해요.',
+        extraversion: 0,
+        feeling: 1,
+        reaction: '마음을 밝히는 선한 영향력! ☀️',
+        types: ['strawberry', 'avocado', 'watermelon', 'banana', 'grapefruit'],
+      },
+      {
+        text: '내가 세운 목표를 스스로 완수해내고, 어제보다 내 실력이 한 단계 성장했다고 느꼈을 때!',
+        subtext: '자신과의 약속을 지키며 역량을 한 뼘 더 키워냈다는 사실에 깊은 자부심을 느껴요.',
+        extraversion: 0,
+        feeling: -1,
+        reaction: '스스로를 성장시키는 몰입의 힘! 🏆',
+        types: ['carrot', 'blueberry', 'apple', 'dragonfruit', 'lime'],
+      },
+    ],
+  },
+  {
+    id: 9,
+    badge: '상황 9 · 진로 체험 박람회',
+    scenario: '진로 박람회 현장에서 수많은 부스 중 내 발걸음이 가장 먼저 향하는 체험존은?',
+    title: '내가 가장 직접 경험해보고 싶은 체험은?',
+    choices: [
+      {
+        text: '직접 손으로 만들고 다채로운 감각을 깨우는 공방·창작 체험이나 역동적인 현장 실습 부스!',
+        subtext: '눈으로만 보는 것보다 직접 만지고 결과물을 만들어내는 생생한 체험을 좋아해요.',
+        extraversion: 1,
+        feeling: 0,
+        reaction: '오감을 깨우는 생생한 창작! 🎪',
+        types: ['apple', 'banana', 'carrot', 'dragonfruit', 'strawberry'],
+      },
+      {
+        text: '최신 AI 기술 시연, 심층 진로 적성 분석, 전문가와의 1:1 맞춤형 미래 직업 멘토링 부스!',
+        subtext: '나의 적성을 객관적으로 파악하고 미래 유망 분야의 통찰을 얻는 것을 좋아해요.',
+        extraversion: -1,
+        feeling: 0,
+        reaction: '미래를 내다보는 예리한 통찰! 🔭',
+        types: ['blueberry', 'lime', 'watermelon', 'grapefruit', 'avocado'],
+      },
+    ],
+  },
+  {
+    id: 10,
+    badge: '상황 10 · 10년 뒤의 나에게',
+    scenario: '10년 뒤, 사회의 멋진 일원으로 활약하고 있을 때 내가 가장 듣고 싶은 칭찬은?',
+    title: '내가 꿈꾸는 10년 뒤 나의 모습은?',
+    choices: [
+      {
+        text: '"너와 함께 일하면 언제나 에너지가 넘치고 든든해!" 모두가 함께하고 싶어 하는 따뜻한 리더',
+        subtext: '사람들과 돈독한 신뢰를 쌓으며 선한 영향력을 넓혀가는 삶을 꿈꿔요.',
+        extraversion: 1,
+        feeling: 1,
+        reaction: '모두를 빛나게 하는 최고의 동반자! 🌟',
+        types: ['strawberry', 'watermelon', 'avocado', 'banana', 'grapefruit'],
+      },
+      {
+        text: '"역시 독보적인 실력자다! 이 분야는 누구도 널 대신할 수 없어." 인정받는 대체 불가의 전문가',
+        subtext: '누구도 흉내 낼 수 없는 전문성과 깊이 있는 실력으로 세상에 기여하는 삶을 꿈꿔요.',
+        extraversion: -1,
+        feeling: -1,
+        reaction: '독보적인 실력의 스페셜리스트! 👑',
+        types: ['carrot', 'blueberry', 'lime', 'apple', 'dragonfruit'],
+      },
+    ],
+  },
+];
+
+export function calculatePersonalityType(
+  answersOrScore: QuizChoice[] | number,
+  feelingScore?: number
+): PersonalityTypeId {
+  // If answers array is provided, calculate scores based on 10 types
+  if (Array.isArray(answersOrScore)) {
+    const scores: Record<PersonalityTypeId, number> = {
+      apple: 0,
+      dragonfruit: 0,
+      blueberry: 0,
+      grapefruit: 0,
+      banana: 0,
+      strawberry: 0,
+      watermelon: 0,
+      lime: 0,
+      carrot: 0,
+      avocado: 0,
+    };
+
+    answersOrScore.forEach((choice) => {
+      if (choice && choice.types) {
+        choice.types.forEach((typeId) => {
+          scores[typeId] = (scores[typeId] || 0) + 1;
+        });
+      }
+    });
+
+    const candidateOrder: PersonalityTypeId[] = [
+      'apple',
+      'dragonfruit',
+      'blueberry',
+      'grapefruit',
+      'banana',
+      'strawberry',
+      'watermelon',
+      'lime',
+      'carrot',
+      'avocado',
+    ];
+
+    let highestType: PersonalityTypeId = 'strawberry';
+    let maxScore = -1;
+
+    for (const t of candidateOrder) {
+      if (scores[t] > maxScore) {
+        maxScore = scores[t];
+        highestType = t;
+      }
+    }
+
+    return highestType;
+  }
+
+  // Fallback for number scores
+  const extraversion = answersOrScore;
+  const feeling = feelingScore ?? 0;
+
+  if (extraversion >= 0 && feeling >= 0) return 'strawberry';
+  if (extraversion < 0 && feeling >= 0) return 'apple';
+  if (extraversion < 0 && feeling < 0) return 'blueberry';
+  return 'banana';
+}

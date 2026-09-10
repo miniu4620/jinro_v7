@@ -1,0 +1,70 @@
+{
+  "guestbook": [
+    {
+      "id": "guest-1788507399800-jr5o",
+      "nickname": "히어로",
+      "personalityType": "strawberry",
+      "message": "난 순발력의 대가! 미니유공방 부스 최고예요 ✨",
+      "sticker": "⭐",
+      "likes": 2,
+      "createdAt": "2026-09-04T07:36:39.800Z"
+    },
+    {
+      "id": "seed-1",
+      "nickname": "꿈꾸는별",
+      "personalityType": "apple",
+      "message": "미니유공방 부스 방문 완료! 성향 진단도 신기하고 미니어처 키트 체험 너무 유익했어요 ✨",
+      "sticker": "🍏",
+      "likes": 12,
+      "createdAt": "2026-09-04T06:29:02.856Z"
+    },
+    {
+      "id": "seed-2",
+      "nickname": "미래건축가",
+      "personalityType": "apple",
+      "message": "전공 상담도 받고 미니어처 키트도 직접 체험해봤어요. 스태프 작가님들 너무 친절해요 최고!",
+      "sticker": "🍏",
+      "likes": 9,
+      "createdAt": "2026-09-04T06:44:02.856Z"
+    },
+    {
+      "id": "seed-3",
+      "nickname": "지우랑민서",
+      "personalityType": "strawberry",
+      "message": "친구랑 같이 와서 서로 카드 성향 맞춰봤어요! 미니유공방 파이팅 ✨",
+      "sticker": "✨",
+      "likes": 6,
+      "createdAt": "2026-09-04T07:09:02.856Z"
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-1788507360721-1yqe",
+      "nickname": "꿈꾸는별",
+      "timeSeconds": 15.8,
+      "moves": 10,
+      "createdAt": "2026-09-04T07:36:00.721Z"
+    },
+    {
+      "id": "rank-1788495375160-6vs3",
+      "nickname": "꿈꾸는별",
+      "timeSeconds": 17,
+      "moves": 12,
+      "createdAt": "2026-09-04T04:16:15.160Z"
+    },
+    {
+      "id": "rank-1788495854761-4ra0",
+      "nickname": "꿈꾸는별",
+      "timeSeconds": 20.1,
+      "moves": 15,
+      "createdAt": "2026-09-04T04:24:14.761Z"
+    },
+    {
+      "id": "rank-1788509625848-j6jb",
+      "nickname": "테스터2",
+      "timeSeconds": 25.3,
+      "moves": 14,
+      "createdAt": "2026-09-04T08:13:45.848Z"
+    }
+  ]
+}
